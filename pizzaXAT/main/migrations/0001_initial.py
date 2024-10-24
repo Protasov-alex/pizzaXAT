@@ -13,11 +13,11 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='ItemMenu',
+            name='Products',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=20)),
-                ('discription', models.CharField(max_length=100)),
+                ('description', models.CharField(max_length=100)),
                 ('price', models.FloatField()),
                 ('img', models.FilePathField()),
             ],
@@ -27,8 +27,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=20)),
-                ('discription', models.CharField(max_length=100)),
-                ('item_menu', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main.itemmenu')),
+                ('description', models.CharField(max_length=100)),
+                ('products_menu', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main.products')),
             ],
         ),
         migrations.CreateModel(
@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('order_time', models.DateTimeField()),
                 ('sum', models.FloatField()),
-                ('item_menu', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main.itemmenu')),
+                ('products_menu', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main.products')),
             ],
         ),
         migrations.CreateModel(
@@ -47,7 +47,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=30)),
                 ('age', models.IntegerField()),
                 ('contact', models.CharField(max_length=15)),
-                ('adress', models.CharField(max_length=50)),
+                ('address', models.CharField(max_length=50)),
                 ('img', models.FilePathField()),
                 ('orders', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main.orders')),
             ],

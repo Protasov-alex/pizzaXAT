@@ -40,49 +40,21 @@
   </header>
 
     <main>
-        <section class="hero">
-            <h2>Специальное предложение!</h2>
-            <p>Скидка 20% на все пиццы при заказе онлайн!</p>
-            <a href="#" class="btn">Заказать сейчас</a>
-        </section>
-
         <section class="pizza-categories">
-            <h2>Категории пиццы</h2>
-            <div class="category-item">
-                <h3>Вегетарианская</h3>
-                <p>Свежие овощи и сыры.</p>
-            </div>
-            <div class="category-item">
-                <h3>Мясная</h3>
-                <p>Выбор лучших мясных ингредентов.</p>
-            </div>
-            <div class="category-item">
-                <h3>С сыром</h3>
-                <p>Для истинных любителей сыра!</p>
-            </div>
-        </section>
+    <h2>Категории</h2>
+    {% for category, products in category_products.items %}
+    <div class="category-item">
+        <h2>{{ category.name }}</h2>
+        {% for product in products %}
+            <h4>{{ product.name }}</h4>
+            <p>{{ product.description }}</p>
+            <img src="{{product.img}}" style="width: 500px; height: 300px;">
+            <span>Цена: {{ product.price }} ₽</span>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</section>
 
-        <section class="pizza-offers">
-            <h2>Наши предложения</h2>
-            <div class="pizza-item">
-                <h3>Маргарита</h3>
-                <p>Классическая пицца с томатами и моцареллой.</p>
-                <span>Цена: 350 ₽</span>
-                <button>Добавить в корзину</button>
-            </div>
-            <div class="pizza-item">
-                <h3>Пепперони</h3>
-                <p>Пицца с пепперони и моцареллой.</p>
-                <span>Цена: 400 ₽</span>
-                <button>Добавить в корзину</button>
-            </div>
-            <div class="pizza-item">
-                <h3>Гавайская</h3>
-                <p>Пицца с ананасами и ветчиной.</p>
-                <span>Цена: 450 ₽</span>
-                <button>Добавить в корзину</button>
-            </div>
-        </section>
 
         <section class="contact">
             <h2>Связаться с нами</h2>
